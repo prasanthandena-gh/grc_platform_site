@@ -11,7 +11,8 @@ preview-*.png
 
 # Markdown / docs (excluded per project policy)
 *.md
-
+!README.md
 # OS
 .DS_Store
 Thumbs.db
+_capture/*.log
