@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verity — The AI-native GRC platform that shows its work</title>
+  <meta name="description" content="Verity is the AI-native governance, risk & compliance platform. Autonomous agents test SOC 2, ISO 27001, NIST CSF and PCI DSS controls against real evidence, cite every claim, and expose the full reasoning trace. No hallucinations. No black boxes. No checkbox compliance." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Verity — Compliance that shows its work" />
+  <meta property="og:description" content="Autonomous agents test controls against real evidence, cite every claim, and expose the full reasoning trace. AI-native, not bolted-on." />
+  <meta property="og:image" content="og.svg" />
+  <meta name="theme-color" content="#0b0b10" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ambient layers -->
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <!-- progress bar -->
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <!-- ░░░ NAV ░░░ -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Verity home">
+      <svg class="brand-mark" width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 3 L27 8.5 V17 C27 23.5 22.2 27.8 16 29.5 C9.8 27.8 5 23.5 5 17 V8.5 Z" stroke="currentColor" stroke-width="1.6" fill="none"/>
+        <path d="M11 16 L14.5 19.5 L21.5 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-name">Verity</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#product">Product</a>
+      <a href="#verify">Verification</a>
+      <a href="#frameworks">Frameworks</a>
+      <a href="#compare">Why Verity</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme" title="Toggle theme">
+        <svg class="ico-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="ico-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+      </button>
+      <a class="btn btn-ghost" href="#cta">See the demo</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ░░░ HERO ░░░ -->
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <div class="eyebrow">
+          <span class="dot"></span> AI-native GRC · not bolted-on
+        </div>
+        <h1>Compliance that<br><span class="grad">shows its work.</span></h1>
+        <p class="lede">
+          Verity's autonomous agents test your controls against <em>real evidence</em>,
+          cite every claim down to the exact quote, and expose the full reasoning trace.
+          No hallucinations. No opaque verdicts. No checkbox theater.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#cta">
+            Watch an agent test a control
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-line" href="#how">How it works</a>
+        </div>
+
+        <div class="hero-trust">
+          <span>Built for</span>
+          <div class="chip-row">
+            <span class="chip">SOC 2</span>
+            <span class="chip">ISO 27001</span>
+            <span class="chip">NIST CSF</span>
+            <span class="chip">PCI DSS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- signature element: live reasoning console -->
+      <div class="hero-console reveal" aria-hidden="true">
+        <div class="console" id="console">
+          <div class="console-bar">
+            <div class="lights"><i></i><i></i><i></i></div>
+            <div class="console-title"><span class="mono">verity · live run</span></div>
+            <div class="console-status"><span class="pulse"></span><span class="mono">streaming</span></div>
+          </div>
+          <div class="console-body" id="consoleBody"></div>
+        </div>
+        <div class="console-glow"></div>
+      </div>
+    </section>
+
+    <!-- marquee of evidence sources -->
+    <section class="marquee-wrap" aria-label="Evidence sources">
+      <div class="marquee">
+        <div class="marquee-track" id="marqueeTrack"></div>
+      </div>
+    </section>
+
+    <!-- ░░░ PROBLEM ░░░ -->
+    <section class="band">
+      <div class="section-head reveal">
+        <span class="kicker">The problem</span>
+        <h2>Incumbents were built before LLMs. It shows.</h2>
+        <p class="sub">Audit prep eats 60–80% of a compliance team's time. The tools meant to help run hourly polls, hide their logic, and make language models do arithmetic — then ask you to trust the answer.</p>
+      </div>
+
+      <div class="problem-grid">
+        <div class="prob reveal">
+          <div class="prob-ico">⟳</div>
+          <h3>Hourly, not continuous</h3>
+          <p>"Continuous monitoring" that polls a few times a day. Drift hides in the gaps between checks.</p>
+        </div>
+        <div class="prob reveal">
+          <div class="prob-ico">▣</div>
+          <h3>Black-box verdicts</h3>
+          <p>A red or green dot with no trace. Auditors re-verify everything by hand — 20+ minutes per finding.</p>
+        </div>
+        <div class="prob reveal">
+          <div class="prob-ico">∑</div>
+          <h3>LLMs doing math</h3>
+          <p>Bolt an LLM onto a pre-LLM engine and let it count users. Hallucinated numbers become "evidence."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ HOW IT WORKS ░░░ -->
+    <section class="band" id="how">
+      <div class="section-head reveal">
+        <span class="kicker">How it works</span>
+        <h2>The agent plans, collects, checks, and explains.<br>You review the residue.</h2>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal" data-step="01">
+          <div class="step-tag mono">PLAN</div>
+          <h3>Plan the test</h3>
+          <p>The agent reads the control's versioned methodology — auditable markdown, not a black box — and lays out exactly what it will check.</p>
+        </div>
+        <div class="step reveal" data-step="02">
+          <div class="step-tag mono">TOOL</div>
+          <h3>Collect real evidence</h3>
+          <p>It pulls live state from AWS, GitHub and your policy docs through MCP connectors. Every value comes from a tool call, never a guess.</p>
+        </div>
+        <div class="step reveal" data-step="03">
+          <div class="step-tag mono">CHECK</div>
+          <h3>Run deterministic checks</h3>
+          <p>The math runs in code, not in the model. Counts, comparisons and thresholds are computed and reproducible.</p>
+        </div>
+        <div class="step reveal" data-step="04">
+          <div class="step-tag mono">VERDICT</div>
+          <h3>Explain with citations</h3>
+          <p>Every assertion ships with an exact quote, page and section — validated by string match. The trace <em>is</em> the product.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ PRODUCT SHOWCASE (real screenshots) ░░░ -->
+    <section class="band" id="product">
+      <div class="section-head reveal">
+        <span class="kicker">Inside the product</span>
+        <h2>This isn't a mockup. It's the running app.</h2>
+        <p class="sub">Real screenshots from a live Verity workspace — populated with real controls, real evidence and real cited verdicts.</p>
+      </div>
+
+      <div class="showcase reveal">
+        <figure class="showcase-frame">
+          <div class="frame-bar">
+            <div class="lights"><i></i><i></i><i></i></div>
+            <div class="frame-url mono"><svg class="lock" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> app.verity.io<span class="frame-path" id="framePath">/dashboard</span></div>
+            <button class="frame-zoom" id="frameZoom" aria-label="Open full size" title="Open full size">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </button>
+          </div>
+          <div class="frame-screen">
+            <img id="shotImg" src="assets/shots/dashboard.png" alt="Verity dashboard — live compliance posture" loading="lazy" />
+          </div>
+        </figure>
+
+        <figcaption class="showcase-caption" id="shotCaption">
+          <h3>Compliance posture, live</h3>
+          <p>Real-time control status, framework rollups across SOC 2 · ISO 27001 · NIST CSF · PCI DSS, and the runs executing right now.</p>
+        </figcaption>
+
+        <div class="showcase-tabs" id="showcaseTabs" role="tablist" aria-label="Product screens">
+          <button class="shot-tab active" role="tab" aria-selected="true"
+            data-src="assets/shots/dashboard.png" data-path="/dashboard"
+            data-title="Compliance posture, live"
+            data-desc="Real-time control status, framework rollups across SOC 2 · ISO 27001 · NIST CSF · PCI DSS, and the runs executing right now.">
+            <span class="shot-tab-dot"></span>Dashboard
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/theater.png" data-path="/theater"
+            data-title="Live theater"
+            data-desc="Watch an agent test a control end to end — streaming reasoning, the five-layer verification stack, and a running cost meter.">
+            <span class="shot-tab-dot"></span>Live theater
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/verification.png" data-path="/verification"
+            data-title="Verification stack"
+            data-desc="See which of the five layers each finding passed — and exactly what data flowed through — before a human ever reviewed it.">
+            <span class="shot-tab-dot"></span>Verification
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/findings.png" data-path="/findings"
+            data-title="Findings register"
+            data-desc="Every deficiency the agent surfaced, with severity and ownership — each anchored to the run that produced it.">
+            <span class="shot-tab-dot"></span>Findings
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/controls.png" data-path="/controls"
+            data-title="Controls"
+            data-desc="Every control across all four frameworks on its first test, filterable by framework and criticality.">
+            <span class="shot-tab-dot"></span>Controls
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/evidence.png" data-path="/evidence"
+            data-title="Evidence library"
+            data-desc="Ingested policies and configs parsed into citable, page-anchored chunks — the source behind every quote.">
+            <span class="shot-tab-dot"></span>Evidence
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/model-policy.png" data-path="/settings/model-policy"
+            data-title="Model policy &amp; cost"
+            data-desc="Route control criticality to the right model — Claude, GPT, Gemini or DeepSeek — and watch the cost per run.">
+            <span class="shot-tab-dot"></span>Model policy
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ LIVE TRACE / CITATION ░░░ -->
+    <section class="band band-alt" id="trace">
+      <div class="split">
+        <div class="split-copy reveal">
+          <span class="kicker">Defensibility</span>
+          <h2>Every claim is cited. Every number traces to a tool call.</h2>
+          <p class="sub">When Verity asserts a fact about your environment, it includes the exact source — quote, page, section — and verifies the quote actually appears in the document. If it can't be grounded, it isn't claimed.</p>
+          <ul class="ticks">
+            <li>Verdicts are reproducible — same evidence, same answer.</li>
+            <li>The audit trail is cryptographically chained.</li>
+            <li>No proprietary black boxes. Methodologies are versioned files.</li>
+          </ul>
+        </div>
+
+        <div class="citation-card reveal" aria-hidden="true">
+          <div class="cite-head">
+            <span class="cite-control mono">CC6.1 · Multi-factor authentication</span>
+            <span class="verdict verdict-red">DEFICIENT</span>
+          </div>
+          <p class="cite-claim">
+            <span class="hl">3 production users</span> authenticate without a second factor, violating the access-control policy's MFA requirement.
+          </p>
+          <div class="cite-source">
+            <div class="cite-source-label mono">CITED EVIDENCE · access-control-policy.pdf · p.4 §3.2</div>
+            <blockquote>"All access to production systems <mark>must be protected by multi-factor authentication</mark> without exception."</blockquote>
+            <div class="cite-verified mono"><span class="tick">✓</span> quote verified by string match</div>
+          </div>
+          <div class="cite-foot">
+            <span class="mono">aws.iam.list_users()</span>
+            <span class="cite-arrow">→</span>
+            <span class="mono">3 of 47 without MFA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ VERDICT SYSTEM ░░░ -->
+    <section class="band">
+      <div class="section-head reveal">
+        <span class="kicker">A semantic language for truth</span>
+        <h2>Four verdicts. Zero ambiguity.</h2>
+        <p class="sub">Verity's color system is strict and never overloaded — so a glance tells you exactly where you stand.</p>
+      </div>
+      <div class="verdict-grid">
+        <div class="vcard v-green reveal"><div class="vbar"></div><h3>Effective</h3><p>The control operates as designed, proven against current evidence.</p></div>
+        <div class="vcard v-red reveal"><div class="vbar"></div><h3>Deficient</h3><p>A gap is proven, with the exact failing evidence cited inline.</p></div>
+        <div class="vcard v-amber reveal"><div class="vbar"></div><h3>Stale</h3><p>Evidence is too old or inconclusive to stand behind. Flagged, never faked.</p></div>
+        <div class="vcard v-blue reveal"><div class="vbar"></div><h3>Info</h3><p>Context the reviewer should see — without a pass/fail judgment.</p></div>
+      </div>
+    </section>
+
+    <!-- ░░░ VERIFICATION STACK ░░░ -->
+    <section class="band band-alt" id="verify">
+      <div class="split split-rev">
+        <div class="split-copy reveal">
+          <span class="kicker">The verification stack</span>
+          <h2>Five layers stand between a guess and a verdict.</h2>
+          <p class="sub">Each finding is filtered through five independent checks before a human ever sees it. The target: under 20% of verdicts need human review — and the ones that do are the genuinely hard calls.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="stat-num" data-count="5">0</span><span class="stat-lbl">verification layers</span></div>
+            <div class="stat"><span class="stat-num" data-count="20" data-suffix="%">0</span><span class="stat-lbl">human-review target</span></div>
+            <div class="stat"><span class="stat-num" data-count="90" data-suffix="s">0</span><span class="stat-lbl">per-verdict review</span></div>
+          </div>
+        </div>
+
+        <div class="stack reveal" id="stack">
+          <div class="layer" style="--i:0" data-layer="01"><span class="layer-n mono">L1</span><div><h4>Schema validation</h4><p>Output must match the contract before anything else runs.</p></div></div>
+          <div class="layer" style="--i:1" data-layer="02"><span class="layer-n mono">L2</span><div><h4>Citation grounding</h4><p>Every quote is string-matched back to its source document.</p></div></div>
+          <div class="layer" style="--i:2" data-layer="03"><span class="layer-n mono">L3</span><div><h4>Deterministic checks</h4><p>All math runs in code — counts, thresholds, comparisons.</p></div></div>
+          <div class="layer" style="--i:3" data-layer="04"><span class="layer-n mono">L4</span><div><h4>Adversarial cross-model</h4><p>A second model tries to refute the verdict before it stands.</p></div></div>
+          <div class="layer" style="--i:4" data-layer="05"><span class="layer-n mono">L5</span><div><h4>Human review</h4><p>Only the genuine residue reaches a person — fully traced.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ FEATURES ░░░ -->
+    <section class="band">
+      <div class="section-head reveal">
+        <span class="kicker">The platform</span>
+        <h2>Everything an audit needs, with the reasoning attached.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>Live control testing</h3>
+          <p>Watch reasoning stream in real time as the agent works a control end to end.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
+          </div>
+          <h3>Evidence collection</h3>
+          <p>Egress-only connectors for AWS &amp; GitHub today; Okta, Jira, Confluence &amp; ServiceNow next.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M5 3h9l5 5v13H5z"/><path d="M9 13h6M9 17h4"/></svg>
+          </div>
+          <h3>Findings &amp; remediation</h3>
+          <p>Severity, ownership, due dates and tracking — each finding anchored to its evidence.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V7z"/></svg>
+          </div>
+          <h3>Workpapers &amp; engagements</h3>
+          <p>Built-in collaboration so external auditors review in place — no email ping-pong.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Ask your evidence</h3>
+          <p>"Which production users lack MFA?" — conversational queries answered from live state.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+          </div>
+          <h3>Multi-LLM routing</h3>
+          <p>Claude, GPT, DeepSeek, Bedrock or self-hosted vLLM. Route per tenant. No lock-in.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M5 3h9l5 5v13H5z"/><path d="M9 17l2-2 2 2 3-4"/></svg>
+          </div>
+          <h3>Board-ready reporting</h3>
+          <p>Generate posture reports leadership can read and auditors can defend — one click.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ░░░ FRAMEWORKS ░░░ -->
+    <section class="band band-alt" id="frameworks">
+      <div class="section-head reveal">
+        <span class="kicker">Coverage</span>
+        <h2>One engine. Every framework you answer to.</h2>
+        <p class="sub">Swap the skill bundle, keep the rigor. SOC 2 is the wedge; the same engine extends to ISO 27001, NIST CSF and PCI DSS — and beyond.</p>
+      </div>
+      <div class="fw-grid">
+        <div class="fw fw-primary reveal"><span class="fw-badge mono">PRIMARY</span><h3>SOC 2 Type II</h3><p>8 trust-services controls live, from MFA to change management — tested against real evidence.</p></div>
+        <div class="fw reveal"><span class="fw-badge mono">SUPPORTED</span><h3>ISO 27001</h3><p>Annex A control coverage reusing the same checkers and citation discipline.</p></div>
+        <div class="fw reveal"><span class="fw-badge mono">SUPPORTED</span><h3>NIST CSF</h3><p>Identify · Protect · Detect · Respond · Recover, mapped to your live posture.</p></div>
+        <div class="fw reveal"><span class="fw-badge mono">SUPPORTED</span><h3>PCI DSS</h3><p>Cardholder-data controls with the same defensible, cited verdicts.</p></div>
+      </div>
+    </section>
+
+    <!-- ░░░ COMPARE ░░░ -->
+    <section class="band" id="compare">
+      <div class="section-head reveal">
+        <span class="kicker">Why Verity</span>
+        <h2>AI-native, not AI-flavored.</h2>
+      </div>
+      <div class="compare reveal">
+        <div class="compare-col compare-them">
+          <div class="compare-h">Bolted-on incumbents</div>
+          <ul>
+            <li><span class="x">✕</span> Hourly polls dressed up as "continuous"</li>
+            <li><span class="x">✕</span> Opaque pass/fail dots, no trace</li>
+            <li><span class="x">✕</span> LLMs left to do arithmetic</li>
+            <li><span class="x">✕</span> High false-positive rate, manual re-verify</li>
+            <li><span class="x">✕</span> Single-vendor model, hidden logic</li>
+          </ul>
+        </div>
+        <div class="compare-vs mono">vs</div>
+        <div class="compare-col compare-us">
+          <div class="compare-h">Verity</div>
+          <ul>
+            <li><span class="ok">✓</span> Agents that plan, collect, check &amp; explain</li>
+            <li><span class="ok">✓</span> Full reasoning trace with cited quotes</li>
+            <li><span class="ok">✓</span> Math runs in code — zero hallucinated numbers</li>
+            <li><span class="ok">✓</span> Five-layer verification before human review</li>
+            <li><span class="ok">✓</span> Portable across models, versioned methodologies</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ PERSONAS ░░░ -->
+    <section class="band band-alt">
+      <div class="section-head reveal">
+        <span class="kicker">Who it's for</span>
+        <h2>Built for the people who have to defend the answer.</h2>
+      </div>
+      <div class="persona-grid">
+        <div class="persona reveal">
+          <h3>Compliance managers</h3>
+          <p>Cut audit prep from weeks to days. Stop living in spreadsheets and email — let the agent gather and organize the evidence.</p>
+        </div>
+        <div class="persona reveal">
+          <h3>Auditors</h3>
+          <p>Review a verdict in ~90 seconds instead of 20+ minutes. The reasoning and citations are already on the page.</p>
+        </div>
+        <div class="persona reveal">
+          <h3>CISOs</h3>
+          <p>One source of truth across frameworks, with board-ready posture you can actually stand behind.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ CTA ░░░ -->
+    <section class="cta" id="cta">
+      <div class="cta-inner reveal">
+        <h2>See an agent test a control —<br>and prove every word of it.</h2>
+        <p>Watch the full reasoning trace stream live, with citations you can click and verdicts you can defend.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="#top">Launch the live demo</a>
+          <a class="btn btn-line btn-lg" href="#how">Explore how it works</a>
+        </div>
+        <p class="cta-fine mono">No checkbox compliance. No black boxes. Just the truth, cited.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ░░░ FOOTER ░░░ -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Verity home">
+          <svg class="brand-mark" width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M16 3 L27 8.5 V17 C27 23.5 22.2 27.8 16 29.5 C9.8 27.8 5 23.5 5 17 V8.5 Z" stroke="currentColor" stroke-width="1.6" fill="none"/>
+            <path d="M11 16 L14.5 19.5 L21.5 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-name">Verity</span>
+        </a>
+        <p>Compliance that shows its work. <br>AI-native GRC controls testing.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#how">How it works</a>
+        <a href="#verify">Verification stack</a>
+        <a href="#frameworks">Frameworks</a>
+      </div>
+      <div class="footer-col">
+        <h4>Why Verity</h4>
+        <a href="#compare">vs. incumbents</a>
+        <a href="#trace">Defensibility</a>
+        <a href="#cta">See the demo</a>
+      </div>
+      <div class="footer-col">
+        <h4>Latin: <span class="serif">vēritās</span></h4>
+        <p class="footer-note">truth — defensible, auditable, cited.</p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© <span id="year"></span> Verity</span>
+      <span class="mono">every claim cited · every number traced</span>
+    </div>
+  </footer>
+
+  <!-- lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <img id="lightboxImg" src="" alt="" />
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

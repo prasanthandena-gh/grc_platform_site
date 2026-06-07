@@ -1,0 +1,38 @@
+name: Deploy site to GitHub Pages
+
+# Publishes the static landing page in this folder to GitHub Pages.
+# Works whether this folder is the repo root or a subdirectory:
+#   - if the site files (index.html) are at the repo root, set SITE_DIR to "."
+#   - if they live in a subfolder (e.g. "website"), set SITE_DIR accordingly.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    env:
+      # change to "." if index.html is at the repo root
+      SITE_DIR: website
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.SITE_DIR }}
+      - id: deployment
+        uses: actions/deploy-pages@v4

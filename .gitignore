@@ -1,0 +1,17 @@
+# dev tooling — never deployed to Pages
+_capture/node_modules/
+_capture/package-lock.json
+_capture/*.local.*
+preview-*.png
+
+# Secrets / env
+.env
+*.env
+.env.*
+
+# Markdown / docs (excluded per project policy)
+*.md
+
+# OS
+.DS_Store
+Thumbs.db
