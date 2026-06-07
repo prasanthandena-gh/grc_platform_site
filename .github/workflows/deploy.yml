@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # change to "." if index.html is at the repo root
-      SITE_DIR: website
+      SITE_DIR: "."
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
