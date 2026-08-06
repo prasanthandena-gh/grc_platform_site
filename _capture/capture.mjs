@@ -1,4 +1,6 @@
 // Capture real screenshots of the running Verity app (dark mode) for the landing gallery.
+// Signs into the curated Northwind Systems demo tenant (clean 32-control workspace:
+// 16-control SOC 2 + wealth-management + AI-governance + proof lineage + assurance cockpit).
 import { chromium } from 'playwright';
 import { fileURLToPath } from 'url';
 import path from 'path';
@@ -7,15 +9,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(__dirname, '..', 'assets', 'shots');
 const BASE = 'http://localhost:5174';
 
+const CREDS = { email: 'admin@northwind.test', password: 'northwind-demo-01' };
+
 const pages = [
-  { slug: 'dashboard',    url: '/',                      wait: 1500 },
+  { slug: 'dashboard',    url: '/',                      wait: 1800 },
+  { slug: 'lineage',      url: '/lineage',               wait: 2200 },
+  { slug: 'coverage',     url: '/coverage',              wait: 1800 },
+  { slug: 'controls',     url: '/controls',              wait: 1600 },
+  { slug: 'frameworks',   url: '/frameworks',            wait: 1600 },
+  { slug: 'worksteps',    url: '/worksteps',             wait: 1600 },
   { slug: 'theater',      url: '/theater',               wait: 3500 },
-  { slug: 'controls',     url: '/controls',              wait: 1500 },
-  { slug: 'findings',     url: '/findings',              wait: 1500 },
-  { slug: 'verification', url: '/verification',          wait: 1500 },
-  { slug: 'agent-ask',    url: '/agent/ask',             wait: 1500 },
-  { slug: 'evidence',     url: '/evidence',              wait: 1500 },
-  { slug: 'model-policy', url: '/settings/model-policy', wait: 1200 },
+  { slug: 'verification', url: '/verification',          wait: 1800 },
+  { slug: 'findings',     url: '/findings',              wait: 1600 },
+  { slug: 'evidence',     url: '/evidence',              wait: 1600 },
+  { slug: 'engagements',  url: '/engagements',           wait: 1600 },
+  { slug: 'model-policy', url: '/settings/model-policy', wait: 1400 },
 ];
 
 const run = async () => {
@@ -30,13 +38,13 @@ const run = async () => {
   const page = await ctx.newPage();
 
   // --- sign in ---
-  console.log('signing in...');
+  console.log('signing in as', CREDS.email);
   await page.goto(`${BASE}/sign-in`, { waitUntil: 'networkidle' });
-  await page.locator('form input[type="email"]').fill('admin@acme.test');
-  await page.locator('form input[type="password"]').fill('verity-demo');
+  await page.locator('form input[type="email"]').fill(CREDS.email);
+  await page.locator('form input[type="password"]').fill(CREDS.password);
   await page.locator('form button[type="submit"]').click();
   await page.waitForURL((u) => !u.pathname.includes('sign-in'), { timeout: 20000 }).catch(() => {});
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(1800);
 
   // ensure dark applied on document too
   await page.evaluate(() => { document.documentElement.dataset.theme = 'dark'; });

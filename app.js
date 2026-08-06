@@ -80,7 +80,7 @@
 
   /* ---------- marquee (evidence sources) ---------- */
   const checkIco = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
-  const sources = ['AWS', 'GitHub', 'Okta', 'Confluence', 'Jira', 'ServiceNow', 'IAM policies', 'Policy docs', 'CloudTrail', 'TLS configs'];
+  const sources = ['AWS', 'GitHub', 'GCP', 'Okta', 'Confluence', 'Jira', 'ServiceNow', 'IAM policies', 'Policy docs', 'CloudTrail', 'Uploaded populations', 'Vendor register'];
   const track = document.getElementById('marqueeTrack');
   if (track) {
     const html = sources.map((s) => `<span class="item">${checkIco}${s}</span>`).join('');
@@ -160,13 +160,14 @@
 
   const script = [
     { tag: 'plan',    txt: 'Testing <b>CC6.1</b> — multi-factor authentication on production access.' },
-    { tag: 'plan',    txt: 'Reading methodology <span class="q">soc2-cc6.1.md</span> · v3 …' },
+    { tag: 'plan',    txt: 'Loading control <span class="q">soc2-cc6.1</span> · pinned skill versions …' },
     { tag: 'tool',    txt: 'aws.iam.list_users() → <b>47 users</b> returned' },
     { tag: 'tool',    txt: 'aws.iam.get_mfa_devices() → enumerating factors …' },
-    { tag: 'check',   txt: 'deterministic count → <b>3 users</b> with no second factor' },
+    { tag: 'check',   txt: 'per-item test → <b>3 of 47</b> users lack a second factor' },
     { tag: 'tool',    txt: 'docs.search("multi-factor") → access-control-policy.pdf p.4' },
     { tag: 'check',   txt: 'citation grounding → quote string-matched <b>✓</b>' },
     { tag: 'llm',     txt: 'drafting verdict with cited evidence …' },
+    { tag: 'check',   txt: 'signing verdict → reproducible hash, re-checkable at <span class="q">/verify</span>' },
     { tag: 'verdict', final: true },
   ];
 

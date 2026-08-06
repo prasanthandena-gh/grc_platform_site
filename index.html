@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verity — The AI-native GRC platform that shows its work</title>
-  <meta name="description" content="Verity is the AI-native governance, risk & compliance platform. Autonomous agents test SOC 2, ISO 27001, NIST CSF and PCI DSS controls against real evidence, cite every claim, and expose the full reasoning trace. No hallucinations. No black boxes. No checkbox compliance." />
+  <meta name="description" content="Verity is the AI-native governance, risk & compliance platform. Autonomous agents test SOC 2, ISO 27001, NIST CSF, PCI DSS and AI-governance (ISO 42001 / EU AI Act) controls per-item against real evidence, name every exception, and produce reproducible, signed verdicts anyone can verify offline. No hallucinations. No black boxes. No checkbox compliance." />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Verity — Compliance that shows its work" />
-  <meta property="og:description" content="Autonomous agents test controls against real evidence, cite every claim, and expose the full reasoning trace. AI-native, not bolted-on." />
+  <meta property="og:description" content="Agents test every row of your controls against real evidence, name every exception, and produce reproducible, signed workpapers auditors accept. AI-native, not bolted-on." />
   <meta property="og:image" content="og.svg" />
   <meta name="theme-color" content="#0b0b10" />
 
@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
   <!-- ambient layers -->
@@ -39,8 +39,9 @@
 
     <nav class="nav-links" aria-label="Primary">
       <a href="#how">How it works</a>
+      <a href="#lineage">Proof lineage</a>
       <a href="#product">Product</a>
-      <a href="#verify">Verification</a>
+      <a href="#firms">For firms</a>
       <a href="#frameworks">Frameworks</a>
       <a href="#compare">Why Verity</a>
     </nav>
@@ -65,7 +66,8 @@
         <h1>Compliance that<br><span class="grad">shows its work.</span></h1>
         <p class="lede">
           Verity's autonomous agents test your controls against <em>real evidence</em>,
-          cite every claim down to the exact quote, and expose the full reasoning trace.
+          cite every claim to the exact quote, and seal each verdict as
+          <em>reproducible, signed proof</em> — the kind auditors accept without redoing the work.
           No hallucinations. No opaque verdicts. No checkbox theater.
         </p>
 
@@ -84,6 +86,8 @@
             <span class="chip">ISO 27001</span>
             <span class="chip">NIST CSF</span>
             <span class="chip">PCI DSS</span>
+            <span class="chip">ISO 42001</span>
+            <span class="chip">EU AI Act</span>
           </div>
         </div>
       </div>
@@ -167,6 +171,73 @@
       </div>
     </section>
 
+    <!-- ░░░ PROOF LINEAGE ░░░ -->
+    <section class="band band-alt" id="lineage">
+      <div class="section-head reveal">
+        <span class="kicker">Proof lineage</span>
+        <h2>Not a status map. A chain of proof —<br>and it runs both ways.</h2>
+        <p class="sub">Incumbents draw boxes colored by an <em>asserted</em> pass or fail. Verity renders the same graph — but every node carries a verifiable verdict, its cited evidence, and how fresh it is. Trace <em>down</em> to the exact proof, or <em>up</em> to everything a failure puts at risk.</p>
+      </div>
+
+      <div class="lineage-rail-wrap reveal" aria-hidden="true">
+        <div class="lineage-rail">
+        <div class="ln-node">
+          <span class="ln-kind mono">PROCESS</span>
+          <span class="ln-name">Production access provisioning</span>
+          <span class="ln-meta"><i class="ln-dot dot-fresh"></i>operates</span>
+        </div>
+        <div class="ln-edge"><span class="mono">gives rise to</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="ln-node">
+          <span class="ln-kind mono">RISK</span>
+          <span class="ln-name">Unauthorized production access</span>
+          <span class="ln-meta ln-exposed"><i class="ln-dot dot-red"></i>exposed</span>
+        </div>
+        <div class="ln-edge"><span class="mono">mitigated by</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="ln-node ln-focus">
+          <span class="ln-kind mono">CONTROL</span>
+          <span class="ln-name">CC6.1 · Multi-factor auth</span>
+          <span class="ln-meta"><i class="ln-dot dot-red"></i>deficient</span>
+        </div>
+        <div class="ln-edge"><span class="mono">tested by</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="ln-node">
+          <span class="ln-kind mono">TEST</span>
+          <span class="ln-name">Per-item · 3 of 47 failed</span>
+          <span class="ln-meta"><i class="ln-dot dot-fresh"></i>reproducible</span>
+        </div>
+        <div class="ln-edge"><span class="mono">cites</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="ln-node">
+          <span class="ln-kind mono">EVIDENCE</span>
+          <span class="ln-name">access-control-policy.pdf · p.4</span>
+          <span class="ln-meta"><i class="ln-dot dot-fresh"></i>verified quote</span>
+        </div>
+        <div class="ln-edge"><span class="mono">satisfies</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        <div class="ln-node">
+          <span class="ln-kind mono">FRAMEWORK</span>
+          <span class="ln-name">SOC 2 · ISO 27001</span>
+          <span class="ln-meta"><i class="ln-dot dot-amber"></i>coverage at risk</span>
+        </div>
+        </div>
+      </div>
+
+      <div class="lineage-dirs">
+        <div class="ldir reveal">
+          <div class="ldir-arrow mono">↓ assurance</div>
+          <h3>Down to the proof</h3>
+          <p>Follow a framework requirement to the control, the exact test, the failing rows, and the cited line of evidence — reproducible offline at <span class="mono">/verify</span>. Lineage that ends in proof, not a checkmark.</p>
+        </div>
+        <div class="ldir reveal">
+          <div class="ldir-arrow mono">↑ blast radius</div>
+          <h3>Up to what breaks</h3>
+          <p>When a control fails or evidence goes stale, see exactly what it <em>un-proves</em> — which risks are now exposed, which frameworks lose coverage, which processes are affected.</p>
+        </div>
+        <div class="ldir reveal">
+          <div class="ldir-arrow mono">◷ freshness</div>
+          <h3>Trust that decays honestly</h3>
+          <p>Every node knows when it was last proven and whether it still reproduces. Stale assurance is flagged as stale — never quietly shown as green.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ░░░ PRODUCT SHOWCASE (real screenshots) ░░░ -->
     <section class="band" id="product">
       <div class="section-head reveal">
@@ -179,32 +250,62 @@
         <figure class="showcase-frame">
           <div class="frame-bar">
             <div class="lights"><i></i><i></i><i></i></div>
-            <div class="frame-url mono"><svg class="lock" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> app.verity.io<span class="frame-path" id="framePath">/dashboard</span></div>
+            <div class="frame-url mono"><svg class="lock" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> app.verity.io<span class="frame-path" id="framePath">/lineage</span></div>
             <button class="frame-zoom" id="frameZoom" aria-label="Open full size" title="Open full size">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
             </button>
           </div>
           <div class="frame-screen">
-            <img id="shotImg" src="assets/shots/dashboard.png" alt="Verity dashboard — live compliance posture" loading="lazy" />
+            <img id="shotImg" src="assets/shots/lineage.png" alt="Verity assurance cockpit — proof, not assertions" loading="lazy" />
           </div>
         </figure>
 
         <figcaption class="showcase-caption" id="shotCaption">
-          <h3>Compliance posture, live</h3>
-          <p>Real-time control status, framework rollups across SOC 2 · ISO 27001 · NIST CSF · PCI DSS, and the runs executing right now.</p>
+          <h3>Assurance cockpit</h3>
+          <p>Proof, not assertions — every control shown as verifiable proof, broken out by framework, with a live effective-verdict trend and evidence freshness.</p>
         </figcaption>
 
         <div class="showcase-tabs" id="showcaseTabs" role="tablist" aria-label="Product screens">
           <button class="shot-tab active" role="tab" aria-selected="true"
-            data-src="assets/shots/dashboard.png" data-path="/dashboard"
-            data-title="Compliance posture, live"
-            data-desc="Real-time control status, framework rollups across SOC 2 · ISO 27001 · NIST CSF · PCI DSS, and the runs executing right now.">
+            data-src="assets/shots/lineage.png" data-path="/lineage"
+            data-title="Assurance cockpit"
+            data-desc="Proof, not assertions — every control shown as verifiable proof, broken out by framework, with a live effective-verdict trend and evidence freshness.">
+            <span class="shot-tab-dot"></span>Assurance cockpit
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/dashboard.png" data-path="/"
+            data-title="Command center"
+            data-desc="Your live compliance posture at a glance — what's proven, what's exposed, and the runs executing right now.">
             <span class="shot-tab-dot"></span>Dashboard
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/controls.png" data-path="/controls"
+            data-title="Controls — tested per-item"
+            data-desc="Every control across SOC 2, ISO 27001, AI governance and wealth suitability — each tested against every row of its population, never sampled.">
+            <span class="shot-tab-dot"></span>Controls
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/worksteps.png" data-path="/worksteps"
+            data-title="Compose your own methodology"
+            data-desc="A reusable library of worksteps — inquiry, design assessment, population capture, per-item testing, human sign-off — assembled into any control.">
+            <span class="shot-tab-dot"></span>Workstep library
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/frameworks.png" data-path="/frameworks"
+            data-title="Frameworks, cross-mapped"
+            data-desc="SOC 2, ISO 27001, NIST CSF, PCI DSS, ISO 42001 and the EU AI Act — authored and cross-mapped so one test can credit many.">
+            <span class="shot-tab-dot"></span>Frameworks
+          </button>
+          <button class="shot-tab" role="tab" aria-selected="false"
+            data-src="assets/shots/coverage.png" data-path="/coverage"
+            data-title="Test once, satisfy many"
+            data-desc="See exactly which framework obligations each control settles — and where a single test earns coverage across several at once.">
+            <span class="shot-tab-dot"></span>Coverage
           </button>
           <button class="shot-tab" role="tab" aria-selected="false"
             data-src="assets/shots/theater.png" data-path="/theater"
             data-title="Live theater"
-            data-desc="Watch an agent test a control end to end — streaming reasoning, the five-layer verification stack, and a running cost meter.">
+            data-desc="Watch an agent test a control end to end — streaming reasoning, deterministic checks, and a running cost meter.">
             <span class="shot-tab-dot"></span>Live theater
           </button>
           <button class="shot-tab" role="tab" aria-selected="false"
@@ -220,22 +321,16 @@
             <span class="shot-tab-dot"></span>Findings
           </button>
           <button class="shot-tab" role="tab" aria-selected="false"
-            data-src="assets/shots/controls.png" data-path="/controls"
-            data-title="Controls"
-            data-desc="Every control across all four frameworks on its first test, filterable by framework and criticality.">
-            <span class="shot-tab-dot"></span>Controls
-          </button>
-          <button class="shot-tab" role="tab" aria-selected="false"
             data-src="assets/shots/evidence.png" data-path="/evidence"
             data-title="Evidence library"
             data-desc="Ingested policies and configs parsed into citable, page-anchored chunks — the source behind every quote.">
             <span class="shot-tab-dot"></span>Evidence
           </button>
           <button class="shot-tab" role="tab" aria-selected="false"
-            data-src="assets/shots/model-policy.png" data-path="/settings/model-policy"
-            data-title="Model policy &amp; cost"
-            data-desc="Route control criticality to the right model — Claude, GPT, Gemini or DeepSeek — and watch the cost per run.">
-            <span class="shot-tab-dot"></span>Model policy
+            data-src="assets/shots/engagements.png" data-path="/engagements"
+            data-title="Firm engagements"
+            data-desc="Firm mode — run a client controls engagement from planning through EQCR sign-off and issuance, all on the same verifiable proof.">
+            <span class="shot-tab-dot"></span>Engagements
           </button>
         </div>
       </div>
@@ -249,8 +344,8 @@
           <h2>Every claim is cited. Every number traces to a tool call.</h2>
           <p class="sub">When Verity asserts a fact about your environment, it includes the exact source — quote, page, section — and verifies the quote actually appears in the document. If it can't be grounded, it isn't claimed.</p>
           <ul class="ticks">
-            <li>Verdicts are reproducible — same evidence, same answer.</li>
-            <li>The audit trail is cryptographically chained.</li>
+            <li>Every row of the population tested — every exception named, never sampled.</li>
+            <li>Verdicts are reproducible <em>and</em> signed — re-checkable offline at <span class="mono">/verify</span>.</li>
             <li>No proprietary black boxes. Methodologies are versioned files.</li>
           </ul>
         </div>
@@ -335,7 +430,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg>
           </div>
           <h3>Evidence collection</h3>
-          <p>Egress-only connectors for AWS &amp; GitHub today; Okta, Jira, Confluence &amp; ServiceNow next.</p>
+          <p>Egress-only connectors for AWS, GitHub &amp; GCP today — plus uploaded populations you attest as complete; Okta, Jira &amp; ServiceNow next.</p>
         </article>
         <article class="feat reveal">
           <div class="feat-ico">
@@ -349,7 +444,21 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V7z"/></svg>
           </div>
           <h3>Workpapers &amp; engagements</h3>
-          <p>Built-in collaboration so external auditors review in place — no email ping-pong.</p>
+          <p>Every completed run assembles a defensible audit workpaper — objective, procedures, evidence, exceptions, conclusion. Firm-mode engagements add the EQCR sign-off chain and roll-forward.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/><circle cx="7" cy="6" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="17" cy="18" r="1.6" fill="currentColor" stroke="none"/></svg>
+          </div>
+          <h3>Per-item testing</h3>
+          <p>Test every row of the population, not a sample — and name every exception. "6 of 24 accounts breached the 20% limit," each with the value that failed.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 7.7 8 9 4.6-1.3 8-4 8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Signed, verifiable proof</h3>
+          <p>Every verdict is a reproducible, cryptographically signed attestation — anyone can re-check it offline at <span class="mono">/verify</span>, no account required.</p>
         </article>
         <article class="feat reveal">
           <div class="feat-ico">
@@ -367,12 +476,76 @@
         </article>
         <article class="feat reveal">
           <div class="feat-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"/><path d="M5 3h9l5 5v13H5z"/><path d="M9 17l2-2 2 2 3-4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l3.5-4 3 2.5L21 6"/></svg>
           </div>
-          <h3>Board-ready reporting</h3>
-          <p>Generate posture reports leadership can read and auditors can defend — one click.</p>
+          <h3>Assurance cockpit &amp; reporting</h3>
+          <p>A live dashboard of posture, coverage, trend and evidence freshness — plus one-click reports leadership can read and auditors can defend.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg>
+          </div>
+          <h3>Compose your own methodology</h3>
+          <p>Assemble controls from reusable worksteps, skills and bounded agents — your firm's methodology as versioned, auditable code, with human sign-off enforced where it matters.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.4"/></svg>
+          </div>
+          <h3>Risk, policy &amp; vendor registers</h3>
+          <p>A full RCM spine — risks, policies, vendors, people and devices — each wired to the controls that mitigate it and the evidence that proves it.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3Z"/></svg>
+          </div>
+          <h3>Public Trust Center</h3>
+          <p>Publish a verifiable posture page prospects can check themselves — every claim backed by a signed attestation, no NDA and no spreadsheet.</p>
         </article>
       </div>
+    </section>
+
+    <!-- ░░░ TWO FRONT DOORS ░░░ -->
+    <section class="band" id="firms">
+      <div class="section-head reveal">
+        <span class="kicker">One engine, two front doors</span>
+        <h2>The company that proves it.<br>The firm that signs off on it.</h2>
+        <p class="sub">The same verifiable engine, pointed at two jobs. A company runs its own compliance; an audit firm tests its clients. Both work from the same cited, reproducible proof — so the handoff between them stops being a re-audit.</p>
+      </div>
+
+      <div class="doors">
+        <div class="door reveal">
+          <div class="door-head">
+            <span class="door-ey mono">COMPLIANCE OS</span>
+            <h3>For companies</h3>
+            <p class="door-sub">Own your posture across every framework — and prove it.</p>
+          </div>
+          <ul class="ticks">
+            <li>Continuous, event-driven testing across AWS, GitHub, GCP and your uploaded populations.</li>
+            <li>A live <em>assurance cockpit</em> — posture, coverage, trend and evidence freshness at a glance.</li>
+            <li>A public <em>Trust Center</em> that proves your posture to customers — verifiable, no NDA, no spreadsheet.</li>
+            <li>Author a control once; satisfy SOC 2, ISO 27001, NIST CSF and PCI DSS together.</li>
+          </ul>
+          <div class="door-foot mono">/dashboard · /lineage · /trust</div>
+        </div>
+
+        <div class="door door-firm reveal">
+          <div class="door-head">
+            <span class="door-ey mono">AUDIT COCKPIT</span>
+            <h3>For audit &amp; assurance firms</h3>
+            <p class="door-sub">Run a controls engagement in hours, not days — and defend every conclusion.</p>
+          </div>
+          <ul class="ticks">
+            <li>Open an engagement, send PBC requests, and collect through a client upload portal.</li>
+            <li>Test <em>every row</em> of the client's population — each exception named, never sampled.</li>
+            <li>Hand your reviewer a signed, cited <em>workpaper</em>, with the EQCR sign-off chain built in.</li>
+            <li>Roll forward period over period; last year's proof becomes this year's starting point.</li>
+          </ul>
+          <div class="door-foot mono">/engagements · /workpapers · /admin/eqcr-queue</div>
+        </div>
+      </div>
+
+      <p class="doors-seam reveal">The company proves it once. The firm starts from that proof. Every verified control becomes shared, re-checkable ground — <em>the trust network compliance never had.</em></p>
     </section>
 
     <!-- ░░░ FRAMEWORKS ░░░ -->
@@ -380,13 +553,31 @@
       <div class="section-head reveal">
         <span class="kicker">Coverage</span>
         <h2>One engine. Every framework you answer to.</h2>
-        <p class="sub">Swap the skill bundle, keep the rigor. SOC 2 is the wedge; the same engine extends to ISO 27001, NIST CSF and PCI DSS — and beyond.</p>
+        <p class="sub">Test once, satisfy many. One automated test settles the equivalent control in every framework that shares its evidence — SOC 2, ISO 27001, NIST CSF and PCI DSS at once — and the same engine now governs AI systems under ISO 42001 and the EU AI Act.</p>
       </div>
       <div class="fw-grid">
-        <div class="fw fw-primary reveal"><span class="fw-badge mono">PRIMARY</span><h3>SOC 2 Type II</h3><p>8 trust-services controls live, from MFA to change management — tested against real evidence.</p></div>
-        <div class="fw reveal"><span class="fw-badge mono">SUPPORTED</span><h3>ISO 27001</h3><p>Annex A control coverage reusing the same checkers and citation discipline.</p></div>
+        <div class="fw fw-primary reveal"><span class="fw-badge mono">PRIMARY</span><h3>SOC 2 Type II</h3><p>The full 16-control trust-services programme, from MFA to change management — each tested per-item against real evidence.</p></div>
+        <div class="fw reveal"><span class="fw-badge mono">SUPPORTED</span><h3>ISO 27001</h3><p>Annex A control coverage reusing the same checkers and citation discipline — cross-mapped, so one test credits both.</p></div>
         <div class="fw reveal"><span class="fw-badge mono">SUPPORTED</span><h3>NIST CSF</h3><p>Identify · Protect · Detect · Respond · Recover, mapped to your live posture.</p></div>
         <div class="fw reveal"><span class="fw-badge mono">SUPPORTED</span><h3>PCI DSS</h3><p>Cardholder-data controls with the same defensible, cited verdicts.</p></div>
+        <div class="fw reveal"><span class="fw-badge mono">AI GOVERNANCE</span><h3>ISO 42001</h3><p>Verifiable AI-management-system controls — govern your models the way you govern everything else, with proof.</p></div>
+        <div class="fw reveal"><span class="fw-badge mono">AI GOVERNANCE</span><h3>EU AI Act</h3><p>Test AI-system obligations against real evidence, deterministically — smarter GRC with AI, safer AI with GRC.</p></div>
+      </div>
+
+      <div class="fw-beyond reveal">
+        <div class="fw-beyond-copy">
+          <span class="fw-badge mono">BEYOND IT</span>
+          <h3>If you can define the control, Verity can prove it.</h3>
+          <p>The engine isn't hard-wired to security frameworks. Author any control against any evidence you can cite — and it inherits the same per-item testing, citations and signed proof. Teams already run it for <em>wealth-management suitability</em>, testing every client portfolio against its investment policy.</p>
+        </div>
+        <div class="fw-beyond-tags">
+          <span class="chip">Wealth suitability</span>
+          <span class="chip">Concentration limits</span>
+          <span class="chip">KYC / AML</span>
+          <span class="chip">Model risk</span>
+          <span class="chip">Vendor SLAs</span>
+          <span class="chip">Your framework</span>
+        </div>
       </div>
     </section>
 
@@ -433,12 +624,38 @@
           <p>Cut audit prep from weeks to days. Stop living in spreadsheets and email — let the agent gather and organize the evidence.</p>
         </div>
         <div class="persona reveal">
+          <h3>Audit &amp; assurance firms</h3>
+          <p>Upload a client's population, test every row, and hand your reviewer a signed, cited workpaper they'll accept — with the EQCR sign-off chain built in. Cut a controls-testing engagement from days to hours.</p>
+        </div>
+        <div class="persona reveal">
           <h3>Auditors</h3>
           <p>Review a verdict in ~90 seconds instead of 20+ minutes. The reasoning and citations are already on the page.</p>
         </div>
         <div class="persona reveal">
           <h3>CISOs</h3>
           <p>One source of truth across frameworks, with board-ready posture you can actually stand behind.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ PROOF IN NUMBERS ░░░ -->
+    <section class="band proof-strip">
+      <div class="proofbar reveal">
+        <div class="pb">
+          <span class="stat-num" data-count="6">0</span>
+          <span class="pb-lbl">frameworks answered by one engine</span>
+        </div>
+        <div class="pb">
+          <span class="stat-num" data-count="16">0</span>
+          <span class="pb-lbl">SOC&nbsp;2 controls, each tested per-item</span>
+        </div>
+        <div class="pb">
+          <span class="stat-num" data-count="100" data-suffix="%">0</span>
+          <span class="pb-lbl">of the population tested, never sampled</span>
+        </div>
+        <div class="pb">
+          <span class="pb-txt mono">/verify</span>
+          <span class="pb-lbl">every verdict signed &amp; re-checkable offline</span>
         </div>
       </div>
     </section>
@@ -473,11 +690,14 @@
       <div class="footer-col">
         <h4>Product</h4>
         <a href="#how">How it works</a>
+        <a href="#lineage">Proof lineage</a>
+        <a href="#product">Inside the product</a>
         <a href="#verify">Verification stack</a>
         <a href="#frameworks">Frameworks</a>
       </div>
       <div class="footer-col">
         <h4>Why Verity</h4>
+        <a href="#firms">For audit firms</a>
         <a href="#compare">vs. incumbents</a>
         <a href="#trace">Defensibility</a>
         <a href="#cta">See the demo</a>
@@ -501,6 +721,6 @@
     <img id="lightboxImg" src="" alt="" />
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>
