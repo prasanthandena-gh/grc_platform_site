@@ -387,6 +387,9 @@ body {
 .step p { color: var(--ink-soft); font-size: .92rem; }
 .step p em { color: var(--ink); font-style: normal; font-weight: 600; }
 
+/* ---------- plain-english primer (reuses .step cards) ---------- */
+.primer { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.1rem; }
+
 /* ---------- split ---------- */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items: center; max-width: var(--maxw); margin: 0 auto; }
 .split-rev .split-copy { order: 2; }
@@ -721,7 +724,7 @@ body {
   .hero-console { order: -1; max-width: 520px; }
   .split, .split-rev .split-copy { grid-template-columns: 1fr; order: 0; }
   .split { gap: 2.5rem; }
-  .problem-grid, .steps, .verdict-grid, .feature-grid, .fw-grid, .persona-grid { grid-template-columns: repeat(2,1fr); }
+  .problem-grid, .steps, .primer, .verdict-grid, .feature-grid, .fw-grid, .persona-grid { grid-template-columns: repeat(2,1fr); }
   .compare { grid-template-columns: 1fr; }
   .compare-vs { justify-self: center; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -735,7 +738,7 @@ body {
   .ln-edge svg { transform: rotate(90deg); }
 }
 @media (max-width: 600px) {
-  .problem-grid, .steps, .verdict-grid, .feature-grid, .fw-grid, .persona-grid { grid-template-columns: 1fr; }
+  .problem-grid, .steps, .primer, .verdict-grid, .feature-grid, .fw-grid, .persona-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .stat-row { gap: 1.4rem; }
   .console-body { height: 380px; }
